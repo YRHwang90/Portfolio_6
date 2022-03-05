@@ -1,0 +1,36 @@
+# central tendency, Range, Variance 
+
+#example dataframe 
+id=1:5
+age=c(30,30,37,35,33)
+gender=c("f","m","f","f","m")
+weight=c(155,177,144,NA,199)
+DF2=data.frame(id,age,gender,weight,stringsAsFactors = TRUE)
+str(DF2)
+DF2
+
+#mean(), median(),mode()
+mean()
+mean(DF2$weight) # since it has a NA (missing data), error occurs. 
+mean(DF2$weight, na.rm=TRUE) #na.rm=TRUE means that remove missing data when calculating mean
+
+median(DF2$age)
+
+#install.packages("prettyR")
+library(prettyR)
+prettyR::Mode(DF2$age)
+
+
+#range: max-min
+
+range(DF2$age)
+diff(range(DF2$age))
+
+#Inter quartile Range (3Q-1Q)
+
+IQR(DF2$age)
+
+#Variance/ Standard Deviation 
+
+var(DF2$age)
+sd(DF2$age)

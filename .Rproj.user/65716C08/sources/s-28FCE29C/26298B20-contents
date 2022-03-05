@@ -1,0 +1,32 @@
+
+#BAR PLOT with Credential interval 
+
+id=1:5
+age=c(30,30,37,35,33)
+gender=c("f","m","f","f","m")
+weight=c(155,177,NA,144,199)
+university=c("Duke","WFU","UNC","Duke","WFU")
+height=c(80,34,56,34,98)
+SAT=c(100,80,90,70,85)
+SAT2=c(105,98,78,34,67)
+introvert=c(3,4,NA,2,1)
+DF2=data.frame(id,age,gender,weight,university,height,SAT,SAT2,introvert,stringsAsFactors = TRUE)
+str(DF2)
+DF2
+
+
+barplot(DF2$age)
+barplot(DF2$age, main="AGE") # add title
+barplot(DF2$age, main="AGE", names.arg=id) # see the differences!
+
+barplot(SAT2~SAT,DF2) #barplot(DV~IV, Dataframe_name)
+
+
+# we want to add error bar  in the bar plot
+
+#first, manually get SE 
+sd(DF2$SAT)
+sd
+length(DF2$SAT)
+se=sd(DF2$SAT)/sqrt(length(DF2$SAT))
+se

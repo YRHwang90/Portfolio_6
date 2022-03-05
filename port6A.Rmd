@@ -1,0 +1,196 @@
+---
+title: "port6a "
+author: "Yoo Ri Hwang"
+date: "2/28/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Source:
+https://adv-r.hadley.nz/   
+https://bookdown.org/ndphillips/YaRrr/the-structure-of-a-custom-function.html   
+https://rc2e.com/simpleprogramming#recipe-id117   
+
+## overview:
+
+In this portfolio, I aim to be familar with function() function :D
+Especially in this portfolio 6 A, I exercise some **basic functions**
+In portfolio 6 B, I will try more advanced functions.
+
+## Packages
+
+```{r}
+
+library(tidyverse)
+
+```
+
+## Sample small data set: 
+
+```{r}
+
+id=1:5
+age=c(30,30,37,35,33)
+gender=c("f","m","f","f","m")
+weight=c(155,177,NA,144,199)
+university=c("Duke","WFU","UNC","Duke","WFU")
+height=c(80,34,56,34,98)
+SAT=c(100,80,90,70,85)
+SAT2=c(105,98,78,34,67)
+introvert=c(3,4,NA,2,1)
+DF=data.frame(id,age,gender,weight,university,height,SAT,SAT2,introvert,stringsAsFactors = TRUE)
+
+DF
+
+```
+
+## Basic Knowledge on basic Functions 
+
+
+### function()
+
+```{r}
+
+fruit<-function(banana, apple, berry){
+  
+  output<-banana*3+apple*5+berry
+  
+  return(output)
+}
+
+fruit(banana=1,apple=2,berry=7)
+```
+
+function with defaults 
+
+```{r}
+fruit2<-function(banana, apple, berry=10){
+  
+  output<-banana*3+apple*5+berry
+  
+  return(output)
+}
+
+fruit2(banana=1,apple=2)
+
+```
+
+TRUE or FALSE in the function() function. 
+```{r}
+greeting <- function (name, birthday=FALSE){
+  paste0(
+    "Hi ", name, 
+    if(birthday) " Happy Birthday ", ":D"
+  )
+}
+
+
+greeting ("maria",birthday= FALSE)
+greeting ("YooRi",birthday= TRUE)
+```
+
+
+### if()
+
+creating function with if() function.
+```{r}
+
+grade <- function (x) {
+  if (x>84){
+    "Good"
+  } else if (x>75){
+    "So So"
+  } else {
+    "try again"
+  }
+}
+
+```
+
+```{r}
+
+grade(60)
+```
+
+
+If () is for scalar. 
+Ifelse () is for vector. 
+
+
+### Switch 
+
+switch (x, condition1=result1, condition2=result2, the other)
+Although switch() function can be used with a numeric x,
+it is recommanded to use this function for only character inputs.
+
+
+
+```{r}
+
+sw <- function(x){
+  switch(x,a="awsome",b="best",c="c","not assinged")
+}
+
+
+## not working
+##sw(a)
+
+sw("a")
+sw("F")
+```
+
+
+```{r}
+
+option <- function(x) {
+  if (x == "a") {
+    "awsome"
+  } else if (x == "b") {
+    "best" 
+   } else {
+    stop("Invalid `x` value")
+  }
+}
+
+option2 <- function(x) {
+  switch(x,
+    a = "awsome",
+    b = "best",
+       stop("Invalid `x` value")
+  )
+}
+option('b')
+option2('b')
+```
+
+stop! 
+```{r}
+
+magic<-function(df){
+  
+if(is.matrix(df)==F){stop("this is not a matrix")}
+  
+print(paste("this matrix has",nrow(df),"rows and", ncol(df), "columns", sep=" "))
+
+}
+
+
+DF<-as.matrix(DF)
+
+magic(DF)
+```
+
+## Loops
+
+```{r}
+
+for(i in 1:10) {
+  
+  print(i)
+  
+}
+
+```

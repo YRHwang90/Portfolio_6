@@ -1,0 +1,18 @@
+---
+title: "Portfolio6_intro"
+author: "Yoo Ri Hwang"
+date: "2/27/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Source:
+https://adv-r.hadley.nz/control-flow.html
+
+In this RMD intro, I will exercise some R functions because 
+I did not put many hours to improve my R skills so far...
+
+
