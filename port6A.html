@@ -166,21 +166,20 @@ pre code {
 
 <h1 class="title toc-ignore">port6a</h1>
 <h4 class="author">Yoo Ri Hwang</h4>
-<h4 class="date">2/28/2022</h4>
+<h4 class="date">3/28/2022</h4>
 
 </div>
 
 
 <div id="source" class="section level2">
 <h2>Source:</h2>
-<p><a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a> <a href="https://bookdown.org/ndphillips/YaRrr/the-structure-of-a-custom-function.html" class="uri">https://bookdown.org/ndphillips/YaRrr/the-structure-of-a-custom-function.html</a></p>
+<p><a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a><br />
+<a href="https://bookdown.org/ndphillips/YaRrr/the-structure-of-a-custom-function.html" class="uri">https://bookdown.org/ndphillips/YaRrr/the-structure-of-a-custom-function.html</a><br />
+<a href="https://rc2e.com/simpleprogramming#recipe-id117" class="uri">https://rc2e.com/simpleprogramming#recipe-id117</a></p>
 </div>
 <div id="overview" class="section level2">
 <h2>overview:</h2>
-<p>In this portfolio, I aim to be familar with function() function :D Especially in this portfolio 6 A, I exercise some <strong>basic functions</strong> In portfolio 6 B, I will try more advanced functions.</p>
-</div>
-<div id="packages" class="section level2">
-<h2>Packages</h2>
+<p>In this portfolio, I aim to be familar with some advanced functions. ## Packages</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
@@ -190,6 +189,7 @@ pre code {
 <pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
 </div>
 <div id="sample-small-data-set" class="section level2">
 <h2>Sample small data set:</h2>
@@ -202,15 +202,7 @@ height=c(80,34,56,34,98)
 SAT=c(100,80,90,70,85)
 SAT2=c(105,98,78,34,67)
 introvert=c(3,4,NA,2,1)
-DF=data.frame(id,age,gender,weight,university,height,SAT,SAT2,introvert,stringsAsFactors = TRUE)
-
-DF</code></pre>
-<pre><code>##   id age gender weight university height SAT SAT2 introvert
-## 1  1  30      f    155       Duke     80 100  105         3
-## 2  2  30      m    177        WFU     34  80   98         4
-## 3  3  37      f     NA        UNC     56  90   78        NA
-## 4  4  35      f    144       Duke     34  70   34         2
-## 5  5  33      m    199        WFU     98  85   67         1</code></pre>
+DF=data.frame(id,age,gender,weight,university,height,SAT,SAT2,introvert,stringsAsFactors = TRUE)</code></pre>
 </div>
 <div id="basic-knowledge-on-basic-functions" class="section level2">
 <h2>Basic Knowledge on basic Functions</h2>
@@ -267,7 +259,7 @@ greeting (&quot;maria&quot;,birthday= FALSE)</code></pre>
 </div>
 <div id="switch" class="section level3">
 <h3>Switch</h3>
-<p>switch (x, condition1=result1, condition2=result2, the other) Although switch() function can be used with a numeric x, it is recommanded to use this function for only character inputs.</p>
+<p>switch (x, condition1=result1, condition2=result2, the other) Although switch() function can be used with a numeric x, it is recommanded to use this function for only <strong>character</strong> inputs.</p>
 <pre class="r"><code>sw &lt;- function(x){
   switch(x,a=&quot;awsome&quot;,b=&quot;best&quot;,c=&quot;c&quot;,&quot;not assinged&quot;)
 }
@@ -310,12 +302,240 @@ print(paste(&quot;this matrix has&quot;,nrow(df),&quot;rows and&quot;, ncol(df),
 
 }
 
+x&lt;-10
+DF2&lt;-as.matrix(DF)
 
-DF&lt;-as.matrix(DF)
-
-magic(DF)</code></pre>
+magic(DF2)</code></pre>
 <pre><code>## [1] &quot;this matrix has 5 rows and 9 columns&quot;</code></pre>
+<pre class="r"><code>#magic(x)</code></pre>
 </div>
+</div>
+<div id="loops" class="section level2">
+<h2>Loops</h2>
+<pre class="r"><code>for(i in 1:10) {
+  
+  print(i*3)
+  
+}</code></pre>
+<pre><code>## [1] 3
+## [1] 6
+## [1] 9
+## [1] 12
+## [1] 15
+## [1] 18
+## [1] 21
+## [1] 24
+## [1] 27
+## [1] 30</code></pre>
+<pre class="r"><code>for(x in 1:5){
+ cat(x, x^2, &quot;\n&quot;)
+}</code></pre>
+<pre><code>## 1 1 
+## 2 4 
+## 3 9 
+## 4 16 
+## 5 25</code></pre>
+<pre class="r"><code>?cat()</code></pre>
+<pre><code>## starting httpd help server ... done</code></pre>
+<pre class="r"><code>DF&lt;-as.data.frame(DF)
+print(DF)</code></pre>
+<pre><code>##   id age gender weight university height SAT SAT2 introvert
+## 1  1  30      f    155       Duke     80 100  105         3
+## 2  2  30      m    177        WFU     34  80   98         4
+## 3  3  37      f     NA        UNC     56  90   78        NA
+## 4  4  35      f    144       Duke     34  70   34         2
+## 5  5  33      m    199        WFU     98  85   67         1</code></pre>
+</div>
+<div id="using-purrr-package" class="section level2">
+<h2>using Purrr package</h2>
+<div id="map-family-modify-friends" class="section level3">
+<h3>MAP family + Modify friends</h3>
+<pre class="r"><code>library(purrr)
+
+
+map(DF$SAT,grade)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Good&quot;
+## 
+## [[2]]
+## [1] &quot;So So&quot;
+## 
+## [[3]]
+## [1] &quot;Good&quot;
+## 
+## [[4]]
+## [1] &quot;try again&quot;
+## 
+## [[5]]
+## [1] &quot;Good&quot;</code></pre>
+<pre class="r"><code>map_chr(DF, typeof)</code></pre>
+<pre><code>##         id        age     gender     weight university     height        SAT 
+##  &quot;integer&quot;   &quot;double&quot;  &quot;integer&quot;   &quot;double&quot;  &quot;integer&quot;   &quot;double&quot;   &quot;double&quot; 
+##       SAT2  introvert 
+##   &quot;double&quot;   &quot;double&quot;</code></pre>
+<pre class="r"><code>map_lgl(DF,is.numeric)</code></pre>
+<pre><code>##         id        age     gender     weight university     height        SAT 
+##       TRUE       TRUE      FALSE       TRUE      FALSE       TRUE       TRUE 
+##       SAT2  introvert 
+##       TRUE       TRUE</code></pre>
+<pre class="r"><code>map_dbl(DF[,7:8],mean)</code></pre>
+<pre><code>##  SAT SAT2 
+## 85.0 76.4</code></pre>
+<pre class="r"><code>red&lt;-function(x){
+  length(unique(x))
+}
+
+# same thing with differnt expressions
+map_dbl(DF[,7:8],red)</code></pre>
+<pre><code>##  SAT SAT2 
+##    5    5</code></pre>
+<pre class="r"><code>map_dbl(DF[,7:8],function(x) length(unique(x)))</code></pre>
+<pre><code>##  SAT SAT2 
+##    5    5</code></pre>
+<pre class="r"><code>map_dbl(DF[,7:8], ~length(unique(.x)) )</code></pre>
+<pre><code>##  SAT SAT2 
+##    5    5</code></pre>
+<pre class="r"><code>## sampe thing with different expression
+
+map_dbl(DF[,7:8], ~mean(.x, na.rm=T))</code></pre>
+<pre><code>##  SAT SAT2 
+## 85.0 76.4</code></pre>
+<pre class="r"><code>map_dbl(DF[,7:8], mean, na.rm=T)</code></pre>
+<pre><code>##  SAT SAT2 
+## 85.0 76.4</code></pre>
+<pre class="r"><code>map(DF$gender,~paste0(.x,&#39;z&#39;))</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;fz&quot;
+## 
+## [[2]]
+## [1] &quot;mz&quot;
+## 
+## [[3]]
+## [1] &quot;fz&quot;
+## 
+## [[4]]
+## [1] &quot;fz&quot;
+## 
+## [[5]]
+## [1] &quot;mz&quot;</code></pre>
+<pre class="r"><code>map(DF$SAT,grade)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Good&quot;
+## 
+## [[2]]
+## [1] &quot;So So&quot;
+## 
+## [[3]]
+## [1] &quot;Good&quot;
+## 
+## [[4]]
+## [1] &quot;try again&quot;
+## 
+## [[5]]
+## [1] &quot;Good&quot;</code></pre>
+<pre class="r"><code>map(DF[,7:8],grade) # This is not what I expected </code></pre>
+<pre><code>## Warning in if (x &gt; 84) {: the condition has length &gt; 1 and only the first
+## element will be used
+
+## Warning in if (x &gt; 84) {: the condition has length &gt; 1 and only the first
+## element will be used</code></pre>
+<pre><code>## $SAT
+## [1] &quot;Good&quot;
+## 
+## $SAT2
+## [1] &quot;Good&quot;</code></pre>
+<pre class="r"><code>DF2&lt;-DF %&gt;%
+  dplyr::select(SAT,SAT2)
+
+modify(DF2,~.x*2)</code></pre>
+<pre><code>##   SAT SAT2
+## 1 200  210
+## 2 160  196
+## 3 180  156
+## 4 140   68
+## 5 170  134</code></pre>
+<pre class="r"><code>dou&lt;-function(x){
+  x*2
+}
+
+
+modify_if(DF,is.numeric,dou)</code></pre>
+<pre><code>##   id age gender weight university height SAT SAT2 introvert
+## 1  2  60      f    310       Duke    160 200  210         6
+## 2  4  60      m    354        WFU     68 160  196         8
+## 3  6  74      f     NA        UNC    112 180  156        NA
+## 4  8  70      f    288       Duke     68 140   68         4
+## 5 10  66      m    398        WFU    196 170  134         2</code></pre>
+<pre class="r"><code>map_if(DF,is.numeric,dou)</code></pre>
+<pre><code>## $id
+## [1]  2  4  6  8 10
+## 
+## $age
+## [1] 60 60 74 70 66
+## 
+## $gender
+## [1] f m f f m
+## Levels: f m
+## 
+## $weight
+## [1] 310 354  NA 288 398
+## 
+## $university
+## [1] Duke WFU  UNC  Duke WFU 
+## Levels: Duke UNC WFU
+## 
+## $height
+## [1] 160  68 112  68 196
+## 
+## $SAT
+## [1] 200 160 180 140 170
+## 
+## $SAT2
+## [1] 210 196 156  68 134
+## 
+## $introvert
+## [1]  6  8 NA  4  2</code></pre>
+</div>
+</div>
+<div id="reduce-reduce-accumulate" class="section level2">
+<h2>Reduce(), reduce(), accumulate()</h2>
+<pre class="r"><code>x &lt;- 1:10
+Reduce(sum,x)</code></pre>
+<pre><code>## [1] 55</code></pre>
+<pre class="r"><code>Reduce(&quot;+&quot;,x) </code></pre>
+<pre><code>## [1] 55</code></pre>
+<pre class="r"><code>1:3 %&gt;% reduce(`*`) # 1*2*3</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>1:3 %&gt;% reduce(`+`) # 1+2+3</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>reduce(1:3,`+`)</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>reduce(50:100,sum)</code></pre>
+<pre><code>## [1] 3825</code></pre>
+<pre class="r"><code>reduce(1:10,`+`)</code></pre>
+<pre><code>## [1] 55</code></pre>
+<pre class="r"><code>reduce(1:10,`+`,.dir=c(&quot;backward&quot;))</code></pre>
+<pre><code>## [1] 55</code></pre>
+<pre class="r"><code>reduce(1:5,`/`)</code></pre>
+<pre><code>## [1] 0.008333333</code></pre>
+<pre class="r"><code>reduce(1:5, `/`,.dir=c(&quot;backward&quot;))</code></pre>
+<pre><code>## [1] 1.875</code></pre>
+<pre class="r"><code>accumulate(1:3,`+`) ## show the intermediate results. </code></pre>
+<pre><code>## [1] 1 3 6</code></pre>
+<pre class="r"><code>1:10 %&gt;%
+  accumulate(`+`)</code></pre>
+<pre><code>##  [1]  1  3  6 10 15 21 28 36 45 55</code></pre>
+<pre class="r"><code>1:10 %&gt;%
+  accumulate(`+`, .dir=c(&quot;backward&quot;))</code></pre>
+<pre><code>##  [1] 55 54 52 49 45 40 34 27 19 10</code></pre>
+<pre class="r"><code>accumulate(1:3,`/`)# 1/2=0.5. and than 0.5/3</code></pre>
+<pre><code>## [1] 1.0000000 0.5000000 0.1666667</code></pre>
+<pre class="r"><code>accumulate(1:3, `/`,.dir=c(&quot;backward&quot;))</code></pre>
+<pre><code>## [1] 1.5000000 0.6666667 3.0000000</code></pre>
+<pre class="r"><code>#3/2 = 1.5, and than 1.5/1</code></pre>
+<pre class="r"><code>walk(DF$SAT,grade)
+
+## do not show results</code></pre>
 </div>
 
 

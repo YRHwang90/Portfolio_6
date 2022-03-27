@@ -1,0 +1,21 @@
+---
+title: "port6B"
+author: "Yoo Ri Hwang"
+date: "3/7/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## overview
+
+I aim to be more familar with R through this portfolio
+
+
+## Packages 
+```{r}
+
+library(purrr)
+```
